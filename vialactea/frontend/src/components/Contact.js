@@ -27,7 +27,30 @@ const Contact = () => {
             {/* Contact Info & Weather */}
             <div className="space-y-6">
 
-
+              {/* contact */}
+              <div className="service-card">
+                <h3 className="service-card-title mb-4">
+                  
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📞 +57 321 565 4899</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>✉️ guachucalrutaagroturistica@gmail.com</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📌 Guachucal, Nariño, Colombia</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📷 @Via_lactea_guachucal</span>
+                  </li>
+                </ul>
+              </div>
 
 
               {/* Quick Tips */}
