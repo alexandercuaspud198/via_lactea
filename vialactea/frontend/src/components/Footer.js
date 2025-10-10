@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Inicio', href: 'hero' }, // Sin el #
+    { name: 'Inicio', href: 'hero' },
     { name: 'Experiencias', href: 'experiencia' },
     { name: 'Aliados', href: 'aliados' },
     { name: 'Eventos', href: 'eventos' },
@@ -28,14 +28,17 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // Función de scroll mejorada
-  const scrollToSection = (sectionId) => {
+  // Función de scroll corregida
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault(); // Importante: prevenir navegación
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start' 
       });
+      // Actualizar el hash sin recargar la página
+      window.history.pushState(null, '', `#${sectionId}`);
     }
   };
 
@@ -58,31 +61,39 @@ const Footer = () => {
               de los Andes nariñenses. Turismo comunitario, sostenible y memorable.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://instagram.com/via_lactea_guachucal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - CORREGIDO */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full bg-transparent border-none p-0"
-                    style={{ all: 'unset', cursor: 'pointer', display: 'block' }}
+                  <a
+                    href={`#${link.href}`}
+                    onClick={(e) => scrollToSection(e, link.href)}
+                    className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm block"
+                    style={{ 
+                      background: 'none',
+                      border: 'none',
+                      padding: 0,
+                      font: 'inherit',
+                      color: 'inherit',
+                      textDecoration: 'none'
+                    }}
                   >
                     {link.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -150,15 +161,15 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex items-center space-x-6 text-xs text-gray-400">
-              <a href="#" className="hover:text-brand-primary transition-colors">
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Política de Privacidad
-              </a>
-              <a href="#" className="hover:text-brand-primary transition-colors">
+              </span>
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Términos de Servicio
-              </a>
-              <a href="#" className="hover:text-brand-primary transition-colors">
+              </span>
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Sostenibilidad
-              </a>
+              </span>
             </div>
           </div>
         </div>
