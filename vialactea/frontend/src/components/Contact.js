@@ -81,7 +81,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-semibold mb-3 text-primary">Desde Pasto:</h4>
                 <ul className="space-y-2 text-sm text-secondary">
-                  <li>• Bus directo: 90 minutos ($8,000)</li>
+                  <li>• Bus directo: 90 minutos ($20,000)</li>
                 
                   <li>• Vehículo propio: Vía Panamericana Norte</li>
                 </ul>
@@ -89,8 +89,7 @@ const Contact = () => {
               <div>
                 <h4 className="font-semibold mb-3 text-primary">Desde Ipiales:</h4>
                 <ul className="space-y-2 text-sm text-secondary">
-                  <li>• Bus directo: 35 minutos ($5,000)</li>
-                  <li>• Taxi: 30 minutos ($15,000)</li>
+                  <li>• Taxi: 35 minutos ($10,000)</li>
                   <li>• Conexión desde frontera Ecuador</li>
                 </ul>
               </div>
