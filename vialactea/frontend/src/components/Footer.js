@@ -1,11 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { contactInfo } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const navigate = useNavigate();
 
   const quickLinks = [
     { name: 'Inicio', href: 'hero' },
@@ -30,10 +28,21 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // Función simplificada que usa navigate de React Router
+  // SOLUCIÓN DIRECTA: Scroll inmediato sin cambiar URL primero
   const scrollToSection = (sectionId) => {
-    // Navegar al hash (esto triggerea el ScrollToHash en App.js)
-    navigate(`/#${sectionId}`);
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      // Primero hacer el scroll
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+      
+      // DESPUÉS actualizar la URL (sin recargar)
+      // Usar replaceState en lugar de pushState para no agregar al historial
+      window.history.replaceState(null, null, `#${sectionId}`);
+    }
   };
 
   return (
@@ -67,13 +76,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - SIN href, solo onClick */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
+                    type="button"
                     onClick={() => scrollToSection(link.href)}
                     className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit"
                   >
