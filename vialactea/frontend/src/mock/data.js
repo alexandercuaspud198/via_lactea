@@ -63,18 +63,21 @@ export const dairyProcessors = [
     name: "Lácteos la Realeza",
     description: "Planta procesadora láctea dedicada a la producción artesanal de quesos de alta calidad, elaborados con leche fresca del altiplano nariñense",
     stats: "Especialistas en una amplia variedad de quesos y productos derivados",
+    certifications: ["0000","0000"],
     image: "img/realeza.jpg"
   },
   {
     name: "Hotel Nalhoa Real",
     description: "Un acogedor hotel ubicado en lo alto del municipio, rodeado de paisajes únicos y aire puro de montaña. Ideal para descansar, disfrutar de la tranquilidad y conectar con la naturaleza.", 
     stats: "Habitaciones confortables para todos los gustos y necesidades",
+    certifications: ["0000","0000"],
     image: "img/nalhoa.jpg"
   },
   {
     name: "Anuc",
     description: "Asociación Nacional de usuarios campesinos",
     stats: "Fortaleciendo el campo a través de la unión y el trabajo colectivo", 
+    certifications: ["0000","0000"],
     image: "img/anuc.png"
   }
 ];
