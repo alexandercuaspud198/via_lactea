@@ -31,7 +31,7 @@ const HeroSection = () => {
     
       aria-label="Sección principal de bienvenida"
       className="relative flex flex-col items-center justify-center py-20 bg-cover bg-center bg-gray-200"
-      style={{ backgroundImage: "url('/via_lactea/img/herobaner6.jpeg')" }}
+      style={{ backgroundImage: "url('img/herobaner6.jpeg')" }}
 
     >
 
