@@ -13,13 +13,25 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-page">
       <Header />
-      <HeroSection />
+      <div id="hero">
+        <HeroSection />
+      </div>
       <ValueProposition />
-      <ExperienceTimeline />
-      <DairyProcessors />
-      <Events />
-      <Testimonials />
-      <Contact />
+      <div id="experiencia">
+        <ExperienceTimeline />
+      </div>
+      <div id="aliados">
+        <DairyProcessors />
+      </div>
+      <div id="eventos">
+        <Events />
+      </div>
+      <div id="testimonios">
+        <Testimonials />
+      </div>
+      <div id="contacto">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );
