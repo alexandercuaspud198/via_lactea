@@ -54,7 +54,20 @@ const DairyProcessors = () => {
                     </div>
                   </div>
 
-
+                  <div className="space-y-2">
+                    <p className="text-sm font-medium text-primary">Certificaciones:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {processor.certifications.map((cert, certIndex) => (
+                        <Badge 
+                          key={certIndex} 
+                          variant="secondary" 
+                          className="text-xs"
+                        >
+                          {cert}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
