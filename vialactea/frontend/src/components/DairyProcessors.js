@@ -81,10 +81,10 @@ const DairyProcessors = () => {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { title: "Ordeño", image: "/img/ordeño2.jpg" },
-              { title: "Recolección", image: "/img/recoleccion.jpg" },
-              { title: "Procesamiento", image: "/img/procesamiento.jpg" },
-              { title: "Producto Final", image: "/img/producto.jpg" }
+              { title: "Ordeño", image: "/via_lactea//img/ordeño2.jpg" },
+              { title: "Recolección", image: "/via_lactea//img/recoleccion.jpg" },
+              { title: "Procesamiento", image: "/via_lactea//img/procesamiento.jpg" },
+              { title: "Producto Final", image: "/via_lactea//img/producto.jpg" }
             ].map((step, index) => (
               <div key={index} className="relative group cursor-pointer">
                 <img
