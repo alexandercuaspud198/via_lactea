@@ -30,19 +30,22 @@ const Footer = () => {
 
   // SOLUCIÓN DIRECTA: Scroll inmediato sin cambiar URL primero
   const scrollToSection = (sectionId) => {
+    console.log('🔍 Intentando ir a:', sectionId);
+    
     const element = document.getElementById(sectionId);
+    console.log('📍 Elemento encontrado:', element);
     
     if (element) {
-      // Primero hacer el scroll
       element.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start'
       });
-      
-      // DESPUÉS actualizar la URL (sin recargar)
-      // Usar replaceState en lugar de pushState para no agregar al historial
       window.history.replaceState(null, null, `#${sectionId}`);
+      console.log('✅ Scroll completado');
+    } else {
+      console.log('❌ Elemento NO encontrado');
     }
+  };
   };
 
   return (
