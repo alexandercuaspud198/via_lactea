@@ -111,7 +111,7 @@ export const events = [
     name: "Reina del Queso",
     date: "2025-10-11",
     description: "Celebración anual de la tradición quesera con concursos, degustaciones y música en vivo",
-    image: "img/reinado.gif",
+    image: "img/reinado.jpg",
     countdown: true
   },
   {
