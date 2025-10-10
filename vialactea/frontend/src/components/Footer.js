@@ -64,17 +64,19 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
             {quickLinks.map((link, index) => (
-               <li key={index}>
-                 <ScrollLink
-                  to={link.href.replace("#", "")} // quita el "#"
-                  smooth={true}
-                  duration={600}
-                  offset={-70} // ajusta si tienes un header fijo
-                  className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm"
+              <li key={index}>
+                <button
+                  onClick={() => {
+                    const element = document.getElementById(link.href.replace("#", ""));
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }}
+                  className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full"
                 >
-                 {link.name}
-               </ScrollLink>
-             </li>
+                  {link.name}
+                </button>
+              </li>
             ))}
             </ul>
           </div>
