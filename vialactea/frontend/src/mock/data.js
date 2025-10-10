@@ -10,18 +10,18 @@ export const heroData = {
 
 export const valueProps = [
   {
-    icon: "/via_lactea//img/lechefresca1.jpg",
+    icon: "img/lechefresca1.jpg",
     title: "Leche Fresca",
     description: "Directo del ordeño al amanecer, con la frescura de los páramos andinos"
 
   },
   {
-    icon: "/via_lactea//img/paisajeandino1.jpg", 
+    icon: "img/paisajeandino1.jpg", 
     title: "Paisaje Andino",
     description: "Volcanes, frailejones y una vista espectacular de la cordillera"
   },
   {
-    icon: "/via_lactea//img/cieloestrellado.png", 
+    icon: "img/cieloestrellado.png", 
     title: "Cielo Oscuro",
     description: "Uno de los mejores lugares para la observación de estrellas en Colombia"
   }
@@ -32,28 +32,28 @@ export const experienceTimeline = [
     time: "5:30 AM",
     title: "Ordeño al Amanecer",
     description: "Participa en el ordeño matutino y conecta con la tradición ganadera",
-    image: "/via_lactea//img/ordeño.jpg",
+    image: "img/ordeño.jpg",
     tip: "Lleva ropa cómoda y abrigada para la madrugada"
   },
   {
     time: "9:00 AM",
     title: "Taller de Quesillo",
     description: "Aprende a hacer quesillo artesanal con técnicas tradicionales",
-    image: "/via_lactea//img/quesillo.jpg", 
+    image: "img/quesillo.jpg", 
     tip: "Podrás llevarte a casa el queso que hagas"
   },
   {
     time: "2:00 PM",
     title: "Miradores de Volcanes",
     description: "Caminata a los mejores puntos de vista del Galeras y Cumbal",
-    image: "/via_lactea//img/mirador.jpg",
+    image: "img/mirador.jpg",
     tip: "No olvides tu cámara para capturar el paisaje"
   },
   {
     time: "7:00 PM",
     title: "Cena Fogatera & Astroturismo",
     description: "Degusta comida típica bajo un manto de estrellas",
-    image: "/via_lactea//img/fogata.jpg",
+    image: "img/fogata.jpg",
     tip: "La contaminación lumínica es mínima, ideal para stargazing"
   }
 ];
@@ -64,21 +64,21 @@ export const dairyProcessors = [
     description: "Procesadora lactea",
     stats: "850 L/día",
     certifications: ["000", "0000", "ISO 9001"],
-    image: "/via_lactea//img/realeza.jpg"
+    image: "img/realeza.jpg"
   },
   {
     name: "Hotel Nalhoa Real",
     description: "confortable hotel en lo alto del municipio", 
     stats: "diferentes tipos de habitaciones",
     certifications: ["00000", "0000"],
-    image: "/via_lactea//img/nalhoa.jpg"
+    image: "img/nalhoa.jpg"
   },
   {
     name: "Anuc",
     description: "Asociación Nacional de usuarios campesinos",
     stats: "24 socios", 
     certifications: ["0000", "0000"],
-    image: "/via_lactea//img/anuc.png"
+    image: "img/anuc.png"
   }
 ];
 
@@ -111,21 +111,21 @@ export const events = [
     name: "Reina del Queso",
     date: "2025-10-11",
     description: "Celebración anual de la tradición quesera con concursos, degustaciones y música en vivo",
-    image: "/via_lactea//img/reinado.jpg",
+    image: "img/reinado.jpg",
     countdown: true
   },
   {
     name: "Exposición de productos lacteos", 
     date: "2025-10-11",
     description: "Intercambio tradicional de productos agrícolas y artesanías locales",
-    image: "/via_lactea//img/stands.jpg",
+    image: "img/stands.jpg",
     countdown: false
   },
   {
     name: "Presentación Musical",
     date: "2025-10-12", 
     description: "Recorrido ecológico por los páramos y su flora única",
-    image: "/via_lactea//img/marabu.jpg", 
+    image: "img/marabu.jpg", 
     countdown: false
   }
 ];
