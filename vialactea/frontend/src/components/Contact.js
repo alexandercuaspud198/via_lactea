@@ -6,6 +6,7 @@ import { contactInfo, weatherData } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Cloud, Moon, Send, Calendar } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 
+
 const Contact = () => {
  
   return (
@@ -20,40 +21,12 @@ const Contact = () => {
           </p>
         </div>
 
+
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-
-            {/* Contact Info & Weather */}
+            {/* Quick Tips - AHORA A LA IZQUIERDA */}
             <div className="space-y-6">
-
-              {/* contact */}
-              <div className="service-card">
-                <h3 className="service-card-title mb-4">
-                  
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start space-x-2">
-                    <span className="text-brand-primary">•</span>
-                    <span>📞 +57 321 565 4899</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-brand-primary">•</span>
-                    <span>✉️ guachucalrutaagroturistica@gmail.com</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-brand-primary">•</span>
-                    <span>📌 Guachucal, Nariño, Colombia</span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="text-brand-primary">•</span>
-                    <span>📷 @Via_lactea_guachucal</span>
-                  </li>
-                </ul>
-              </div>
-
-
-              {/* Quick Tips */}
               <div className="service-card">
                 <h3 className="service-card-title mb-4">
                   Tips para tu Visita
@@ -78,8 +51,37 @@ const Contact = () => {
                 </ul>
               </div>
             </div>
+
+            {/* Contact Info - AHORA A LA DERECHA */}
+            <div className="space-y-6">
+              <div className="service-card">
+                <h3 className="service-card-title mb-4">
+                  Información de Contacto
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📞 +57 321 565 4899</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>✉️ guachucalrutaagroturistica@gmail.com</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📌 Guachucal, Nariño, Colombia</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-brand-primary">•</span>
+                    <span>📷 @Via_lactea_guachucal</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
+
 
         {/* Google Maps Section */}
         <div className="mt-16">
@@ -123,5 +125,6 @@ const Contact = () => {
     </section>
   );
 };
+
 
 export default Contact;
