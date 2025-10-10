@@ -61,23 +61,20 @@ export const experienceTimeline = [
 export const dairyProcessors = [
   {
     name: "Lácteos la Realeza",
-    description: "Procesadora lactea",
-    stats: "850 L/día",
-    certifications: ["000", "0000", "ISO 9001"],
+    description: "Planta procesadora láctea dedicada a la producción artesanal de quesos de alta calidad, elaborados con leche fresca del altiplano nariñense",
+    stats: "Especialistas en una amplia variedad de quesos y productos derivados",
     image: "img/realeza.jpg"
   },
   {
     name: "Hotel Nalhoa Real",
-    description: "confortable hotel en lo alto del municipio", 
-    stats: "diferentes tipos de habitaciones",
-    certifications: ["00000", "0000"],
+    description: "Un acogedor hotel ubicado en lo alto del municipio, rodeado de paisajes únicos y aire puro de montaña. Ideal para descansar, disfrutar de la tranquilidad y conectar con la naturaleza.", 
+    stats: "Habitaciones confortables para todos los gustos y necesidades",
     image: "img/nalhoa.jpg"
   },
   {
     name: "Anuc",
     description: "Asociación Nacional de usuarios campesinos",
-    stats: "24 socios", 
-    certifications: ["0000", "0000"],
+    stats: "Fortaleciendo el campo a través de la unión y el trabajo colectivo", 
     image: "img/anuc.png"
   }
 ];
@@ -111,20 +108,20 @@ export const events = [
     name: "Reina del Queso",
     date: "2025-10-11",
     description: "Celebración anual de la tradición quesera con concursos, degustaciones y música en vivo",
-    image: "img/reinado.jpg",
+    image: "img/reinado.gif",
     countdown: true
   },
   {
     name: "Exposición de productos lacteos", 
-    date: "2025-10-11",
-    description: "Intercambio tradicional de productos agrícolas y artesanías locales",
+    date: "2025-10-12",
+    description: "Exposición de productos lácteos de la región",
     image: "img/stands.jpg",
     countdown: false
   },
   {
     name: "Presentación Musical",
     date: "2025-10-12", 
-    description: "Recorrido ecológico por los páramos y su flora única",
+    description: "Presentación muscical de diferentes agrupaciones artisiticas",
     image: "img/marabu.jpg", 
     countdown: false
   }
