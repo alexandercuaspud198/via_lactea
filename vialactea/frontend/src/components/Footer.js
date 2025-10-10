@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { contactInfo } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
@@ -28,25 +28,25 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // SOLUCIÓN DIRECTA: Scroll inmediato sin cambiar URL primero
-  const scrollToSection = (sectionId) => {
-    console.log('🔍 Intentando ir a:', sectionId);
-    
-    const element = document.getElementById(sectionId);
-    console.log('📍 Elemento encontrado:', element);
-    
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start'
-      });
-      window.history.replaceState(null, null, `#${sectionId}`);
-      console.log('✅ Scroll completado');
-    } else {
-      console.log('❌ Elemento NO encontrado');
-    }
-  };
-  };
+  // SOLUCIÓN CON useCallback para estabilizar la función
+  const scrollToSection = useCallback((sectionId) => {
+    // Usar requestAnimationFrame para asegurar que el DOM esté listo
+    requestAnimationFrame(() => {
+      const element = document.getElementById(sectionId);
+      
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+        
+        // Actualizar URL después del scroll
+        setTimeout(() => {
+          window.history.replaceState(null, null, `#${sectionId}`);
+        }, 100);
+      }
+    });
+  }, []);
 
   return (
     <footer className="bg-primary text-white">
@@ -79,16 +79,17 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links - SIN href, solo onClick */}
+          {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+              {quickLinks.map((link) => (
+                <li key={link.href}>
                   <button
                     type="button"
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit"
+                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit outline-none"
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
                   >
                     {link.name}
                   </button>
