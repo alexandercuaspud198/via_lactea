@@ -1,7 +1,7 @@
 import React from 'react';
 import { contactInfo } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
-
+import { Link as ScrollLink } from "react-scroll";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -24,9 +24,8 @@ const Footer = () => {
   ];
 
   const certifications = [
-    { name: 'RNT', number: '12345' },
-    { name: 'Negocio Verde', number: 'NG-67890' },
-    { name: 'Turismo Sostenible', number: 'TS-11223' }
+    { name: 'Negocio Verde' },
+    { name: 'Turismo Sostenible' }
   ];
 
   return (
@@ -64,16 +63,19 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+            {quickLinks.map((link, index) => (
+               <li key={index}>
+                 <ScrollLink
+                  to={link.href.replace("#", "")} // quita el "#"
+                  smooth={true}
+                  duration={600}
+                  offset={-70} // ajusta si tienes un header fijo
+                  className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm"
+                >
+                 {link.name}
+               </ScrollLink>
+             </li>
+            ))}
             </ul>
           </div>
 
