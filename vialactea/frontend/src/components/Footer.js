@@ -1,9 +1,16 @@
-import React from 'react';
-import { contactInfo } from '../mock/data';
+import React, { useEffect } from 'react';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Tus datos de contacto (importa desde tu mock/data.js)
+  const contactInfo = {
+    phone: '+57 312 345 6789',
+    email: 'info@vialacteaguachucal.com',
+    whatsapp: '573123456789',
+    address: 'Guachucal, Nariño, Colombia'
+  };
 
   const quickLinks = [
     { name: 'Inicio', href: 'hero' },
@@ -28,31 +35,55 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // Función de scroll corregida
+  // SOLUCIÓN: Función que NO usa href="#" sino que maneja todo con JavaScript
   const scrollToSection = (e, sectionId) => {
-    e.preventDefault(); // Importante: prevenir navegación
+    e.preventDefault();
+    e.stopPropagation();
+    
     const element = document.getElementById(sectionId);
+    
     if (element) {
       element.scrollIntoView({ 
         behavior: 'smooth', 
-        block: 'start' 
+        block: 'start',
+        inline: 'nearest'
       });
-      // Actualizar el hash sin recargar la página
-      window.history.pushState(null, '', `#${sectionId}`);
+      
+      // Actualizar la URL sin que React Router lo intercepte
+      window.history.replaceState(null, '', `#${sectionId}`);
     }
+    
+    return false;
   };
 
+  // Manejar scroll al cargar la página si hay hash en la URL
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      // Usar setTimeout para asegurarse de que el DOM esté listo
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand & Description */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">VL</span>
               </div>
-              <span className="font-satoshi font-semibold text-xl">
+              <span className="font-semibold text-xl">
                 Vía Láctea Guachucal
               </span>
             </div>
@@ -61,39 +92,30 @@ const Footer = () => {
               de los Andes nariñenses. Turismo comunitario, sostenible y memorable.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://instagram.com/via_lactea_guachucal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://instagram.com/via_lactea_guachucal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links - CORREGIDO */}
+          {/* Quick Links - CLAVE: usar button en lugar de <a> */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={`#${link.href}`}
+                  <button
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="cursor-pointer text-gray-300 hover:text-brand-primary transition-colors text-sm block"
-                    style={{ 
-                      background: 'none',
-                      border: 'none',
-                      padding: 0,
-                      font: 'inherit',
-                      color: 'inherit',
-                      textDecoration: 'none'
-                    }}
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -116,7 +138,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Contacto</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Phone size={16} className="text-brand-primary mt-1" />
+                <Phone size={16} className="text-blue-400 mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">{contactInfo.phone}</p>
                   <p className="text-xs text-gray-400">Lun - Dom 7:00 AM - 7:00 PM</p>
@@ -124,7 +146,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <Mail size={16} className="text-brand-primary mt-1" />
+                <Mail size={16} className="text-blue-400 mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">{contactInfo.email}</p>
                   <p className="text-xs text-gray-400">Respuesta en 24h</p>
@@ -132,7 +154,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <MessageCircle size={16} className="text-brand-primary mt-1" />
+                <MessageCircle size={16} className="text-blue-400 mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">WhatsApp</p>
                   <p className="text-xs text-gray-400">{contactInfo.whatsapp}</p>
@@ -140,7 +162,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <MapPin size={16} className="text-brand-primary mt-1" />
+                <MapPin size={16} className="text-blue-400 mt-1" />
                 <p className="text-sm text-gray-300">{contactInfo.address}</p>
               </div>
             </div>
@@ -161,13 +183,13 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex items-center space-x-6 text-xs text-gray-400">
-              <span className="cursor-pointer hover:text-brand-primary transition-colors">
+              <span className="cursor-pointer hover:text-blue-400 transition-colors">
                 Política de Privacidad
               </span>
-              <span className="cursor-pointer hover:text-brand-primary transition-colors">
+              <span className="cursor-pointer hover:text-blue-400 transition-colors">
                 Términos de Servicio
               </span>
-              <span className="cursor-pointer hover:text-brand-primary transition-colors">
+              <span className="cursor-pointer hover:text-blue-400 transition-colors">
                 Sostenibilidad
               </span>
             </div>
