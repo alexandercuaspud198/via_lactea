@@ -13,7 +13,7 @@ const DairyProcessors = () => {
   };
 
   return (
-    <section id="procesadoras" className="py-24 bg-section">
+    <section id="aliados" className="py-24 bg-section">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="heading-2 mb-6 text-primary">
