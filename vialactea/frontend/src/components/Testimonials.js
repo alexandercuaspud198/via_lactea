@@ -173,20 +173,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
-          <div className="max-w-2xl mx-auto bg-white rounded-lg p-8">
-            <h3 className="heading-3 mb-4 text-primary">
-              ¿Ya viviste la experiencia?
-            </h3>
-            <p className="body-medium text-secondary mb-6">
-              Comparte tu testimonio y ayuda a otros viajeros a descubrir Guachucal
-            </p>
-            <Button className="btn-primary">
-              Deja tu Opinión
-            </Button>
-          </div>
-        </div>
+
       </div>
     </section>
   );
