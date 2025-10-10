@@ -49,7 +49,7 @@ const Header = () => {
               className="block"
             >
               <img
-                src="/via_lactea/img/vialactea.png"
+                src="/img/vialactea.png"
                 alt="Logo Vía Láctea Guachucal"
                 className="h-20 w-auto cursor-pointer hover:scale-105 transition-transform duration-200"
               />

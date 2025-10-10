@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import { Toaster } from "./components/ui/toaster";
 
 function App() {
-  // Manejar el scroll al cargar la página con hash
   useEffect(() => {
     const handleInitialHash = () => {
       const hash = window.location.hash.slice(1);
@@ -18,14 +17,11 @@ function App() {
               block: 'start' 
             });
           }
-        }, 300); // Delay más largo para asegurar que todo esté renderizado
+        }, 300);
       }
     };
 
-    // Ejecutar cuando el componente monte
     handleInitialHash();
-
-    // También escuchar cambios de hash
     window.addEventListener('hashchange', handleInitialHash);
     
     return () => {
@@ -35,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter basename="/via_lactea">
+      <BrowserRouter basename="/">  {/* CAMBIADO AQUÍ */}
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

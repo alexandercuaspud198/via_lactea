@@ -1,7 +1,8 @@
 {
-  "name": "frontend",
+ 
+  "name": "via-lactea-guachucal",
   "version": "0.1.0",
-  "homepage": "https://alexandercuaspud198.github.io/via_lactea",
+  "homepage": "https://www.vialacteaguachucal.com",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
