@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { contactInfo } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
   const navigate = useNavigate();
-
-  // Tus datos de contacto (importa desde tu mock/data.js)
-  const contactInfo = {
-    phone: '+57 312 345 6789',
-    email: 'info@vialacteaguachucal.com',
-    whatsapp: '573123456789',
-    address: 'Guachucal, Nariño, Colombia'
-  };
 
   const quickLinks = [
     { name: 'Inicio', href: 'hero' },
@@ -38,55 +30,23 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // SOLUCIÓN MEJORADA: Usar navigate de React Router
+  // Función simplificada que usa navigate de React Router
   const scrollToSection = (sectionId) => {
-    // Primero actualiza la URL usando React Router
-    navigate(`/#${sectionId}`, { replace: true });
-    
-    // Luego hace scroll con un pequeño delay
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start',
-          inline: 'nearest'
-        });
-      }
-    }, 50);
+    // Navegar al hash (esto triggerea el ScrollToHash en App.js)
+    navigate(`/#${sectionId}`);
   };
 
-  // Detectar cambios en el hash y hacer scroll automático
-  useEffect(() => {
-    const hash = location.hash.slice(1); // Remover el #
-    
-    if (hash) {
-      // Pequeño delay para asegurar que el DOM esté listo
-      const timer = setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        }
-      }, 100);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [location]);
-
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-primary text-white">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand & Description */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">VL</span>
               </div>
-              <span className="font-semibold text-xl">
+              <span className="font-satoshi font-semibold text-xl">
                 Vía Láctea Guachucal
               </span>
             </div>
@@ -95,13 +55,13 @@ const Footer = () => {
               de los Andes nariñenses. Turismo comunitario, sostenible y memorable.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="https://instagram.com/via_lactea_guachucal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://instagram.com/via_lactea_guachucal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-brand-primary transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
@@ -115,7 +75,7 @@ const Footer = () => {
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit"
+                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit"
                   >
                     {link.name}
                   </button>
@@ -141,7 +101,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-6">Contacto</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <Phone size={16} className="text-blue-400 mt-1" />
+                <Phone size={16} className="text-brand-primary mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">{contactInfo.phone}</p>
                   <p className="text-xs text-gray-400">Lun - Dom 7:00 AM - 7:00 PM</p>
@@ -149,7 +109,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <Mail size={16} className="text-blue-400 mt-1" />
+                <Mail size={16} className="text-brand-primary mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">{contactInfo.email}</p>
                   <p className="text-xs text-gray-400">Respuesta en 24h</p>
@@ -157,7 +117,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <MessageCircle size={16} className="text-blue-400 mt-1" />
+                <MessageCircle size={16} className="text-brand-primary mt-1" />
                 <div>
                   <p className="text-sm text-gray-300">WhatsApp</p>
                   <p className="text-xs text-gray-400">{contactInfo.whatsapp}</p>
@@ -165,7 +125,7 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <MapPin size={16} className="text-blue-400 mt-1" />
+                <MapPin size={16} className="text-brand-primary mt-1" />
                 <p className="text-sm text-gray-300">{contactInfo.address}</p>
               </div>
             </div>
@@ -186,13 +146,13 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex items-center space-x-6 text-xs text-gray-400">
-              <span className="cursor-pointer hover:text-blue-400 transition-colors">
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Política de Privacidad
               </span>
-              <span className="cursor-pointer hover:text-blue-400 transition-colors">
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Términos de Servicio
               </span>
-              <span className="cursor-pointer hover:text-blue-400 transition-colors">
+              <span className="cursor-pointer hover:text-brand-primary transition-colors">
                 Sostenibilidad
               </span>
             </div>
