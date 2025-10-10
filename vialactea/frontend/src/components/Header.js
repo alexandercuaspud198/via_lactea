@@ -5,13 +5,36 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Experiencia', href: '#experiencia' },
-    { name: 'Aliados', href: '#aliados' },
-    { name: 'Eventos', href: '#eventos' },
-    { name: 'Testimonios', href: '#testimonios' },
-    { name: 'Contacto', href: '#contacto' }
+    { name: 'Inicio', href: 'hero' },
+    { name: 'Experiencia', href: 'experiencia' },
+    { name: 'Aliados', href: 'aliados' },
+    { name: 'Eventos', href: 'eventos' },
+    { name: 'Testimonios', href: 'testimonios' },
+    { name: 'Contacto', href: 'contacto' }
   ];
+
+  // Función para manejar el scroll sin que React Router interfiera
+  const handleClick = (e, sectionId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+      
+      // Actualizar hash
+      window.location.hash = sectionId;
+    }
+    
+    // Cerrar menú móvil si está abierto
+    setIsMenuOpen(false);
+    
+    return false;
+  };
 
   return (
     <header className="fixed top-0 w-full bg-azul shadow-md z-50">
@@ -19,12 +42,14 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-
-
             {/* Imagen con enlace al inicio */}
-            <a href="#hero" className="block">
+            <a 
+              href="#hero" 
+              onClick={(e) => handleClick(e, 'hero')}
+              className="block"
+            >
               <img
-                src="/via_lactea//img/vialactea.png"
+                src="/via_lactea/img/vialactea.png"
                 alt="Logo Vía Láctea Guachucal"
                 className="h-20 w-auto cursor-pointer hover:scale-105 transition-transform duration-200"
               />
@@ -36,7 +61,8 @@ const Header = () => {
             {navigation.map((item) => (
               <a
                 key={item.name}
-                href={item.href}
+                href={`#${item.href}`}
+                onClick={(e) => handleClick(e, item.href)}
                 className="text-white hover:text-amarillo transition-colors font-medium"
               >
                 {item.name}
@@ -60,9 +86,9 @@ const Header = () => {
               {navigation.map((item) => (
                 <a
                   key={item.name}
-                  href={item.href}
+                  href={`#${item.href}`}
+                  onClick={(e) => handleClick(e, item.href)}
                   className="text-white hover:text-amarillo transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
