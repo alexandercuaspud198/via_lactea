@@ -111,21 +111,21 @@ export const events = [
     name: "Reina del Queso",
     date: "2025-10-11",
     description: "Celebración anual de la tradición quesera con concursos, degustaciones y música en vivo",
-    image: "/via_lactea//img/reinado.png",
+    image: "/via_lactea//img/reinado.jpg",
     countdown: true
   },
   {
     name: "Exposición de productos lacteos", 
     date: "2025-10-11",
     description: "Intercambio tradicional de productos agrícolas y artesanías locales",
-    image: "/via_lactea//img/stands.png",
+    image: "/via_lactea//img/stands.jpg",
     countdown: false
   },
   {
     name: "Presentación Musical",
     date: "2025-10-12", 
     description: "Recorrido ecológico por los páramos y su flora única",
-    image: "/via_lactea//img/marabu.png", 
+    image: "/via_lactea//img/marabu.jpg", 
     countdown: false
   }
 ];
