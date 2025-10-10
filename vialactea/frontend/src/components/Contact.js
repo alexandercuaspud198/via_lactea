@@ -28,47 +28,7 @@ const Contact = () => {
             <div className="space-y-6">
 
 
-              {/* Weather Widget */}
-              <div className="service-card">
-                <h3 className="service-card-title mb-4">
-                  Clima Actual en el Páramo
-                </h3>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <Cloud size={24} className="text-blue-500 mr-2" />
-                      <span className="text-2xl font-bold text-blue-600">
-                        {weatherData.temperature}°C
-                      </span>
-                    </div>
-                    <p className="text-sm text-secondary">Temperatura</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="flex items-center justify-center mb-2">
-                      <span className="text-lg mr-2">💧</span>
-                      <span className="text-xl font-semibold text-blue-600">
-                        {weatherData.humidity}%
-                      </span>
-                    </div>
-                    <p className="text-sm text-secondary">Humedad</p>
-                  </div>
-                </div>
-                
-                <div className="mt-4 p-3 bg-section rounded-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Moon size={16} className="text-yellow-500" />
-                      <span className="text-sm font-medium">Fase lunar:</span>
-                    </div>
-                    <span className="text-sm">{weatherData.moonPhase}</span>
-                  </div>
-                  <p className="text-xs text-secondary mt-1">
-                    Condiciones: {weatherData.conditions}
-                  </p>
-                </div>
-              </div>
+
 
               {/* Quick Tips */}
               <div className="service-card">
