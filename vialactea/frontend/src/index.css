@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Agregar scroll suave para navegación con anclas */
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply bg-background text-azul;
