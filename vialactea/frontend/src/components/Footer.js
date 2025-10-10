@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Tus datos de contacto (importa desde tu mock/data.js)
   const contactInfo = {
@@ -35,33 +38,31 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // SOLUCIÓN: Función que NO usa href="#" sino que maneja todo con JavaScript
-  const scrollToSection = (e, sectionId) => {
-    e.preventDefault();
-    e.stopPropagation();
+  // SOLUCIÓN MEJORADA: Usar navigate de React Router
+  const scrollToSection = (sectionId) => {
+    // Primero actualiza la URL usando React Router
+    navigate(`/#${sectionId}`, { replace: true });
     
-    const element = document.getElementById(sectionId);
-    
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start',
-        inline: 'nearest'
-      });
-      
-      // Actualizar la URL sin que React Router lo intercepte
-      window.history.replaceState(null, '', `#${sectionId}`);
-    }
-    
-    return false;
+    // Luego hace scroll con un pequeño delay
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    }, 50);
   };
 
-  // Manejar scroll al cargar la página si hay hash en la URL
+  // Detectar cambios en el hash y hacer scroll automático
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
+    const hash = location.hash.slice(1); // Remover el #
+    
     if (hash) {
-      // Usar setTimeout para asegurarse de que el DOM esté listo
-      setTimeout(() => {
+      // Pequeño delay para asegurar que el DOM esté listo
+      const timer = setTimeout(() => {
         const element = document.getElementById(hash);
         if (element) {
           element.scrollIntoView({ 
@@ -70,8 +71,10 @@ const Footer = () => {
           });
         }
       }, 100);
+      
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, [location]);
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -104,15 +107,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links - CLAVE: usar button en lugar de <a> */}
+          {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0"
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit"
                   >
                     {link.name}
                   </button>
