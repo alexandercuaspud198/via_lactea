@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { contactInfo } from '../mock/data';
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 
@@ -28,25 +28,26 @@ const Footer = () => {
     { name: 'Turismo Sostenible' }
   ];
 
-  // SOLUCIÓN CON useCallback para estabilizar la función
-  const scrollToSection = useCallback((sectionId) => {
-    // Usar requestAnimationFrame para asegurar que el DOM esté listo
-    requestAnimationFrame(() => {
-      const element = document.getElementById(sectionId);
+  // Función de scroll usando solo DOM API nativo
+  const handleClick = (e, sectionId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const element = document.getElementById(sectionId);
+    
+    if (element) {
+      // Hacer scroll inmediato
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
       
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start'
-        });
-        
-        // Actualizar URL después del scroll
-        setTimeout(() => {
-          window.history.replaceState(null, null, `#${sectionId}`);
-        }, 100);
-      }
-    });
-  }, []);
+      // Actualizar hash manualmente
+      window.location.hash = sectionId;
+    }
+    
+    return false;
+  };
 
   return (
     <footer className="bg-primary text-white">
@@ -79,20 +80,19 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links - USAR <a> con preventDefault */}
           <div>
             <h3 className="font-semibold text-lg mb-6">Enlaces Rápidos</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm text-left w-full cursor-pointer bg-transparent border-none p-0 font-inherit outline-none"
-                    style={{ WebkitTapHighlightColor: 'transparent' }}
+                  <a
+                    href={`#${link.href}`}
+                    onClick={(e) => handleClick(e, link.href)}
+                    className="text-gray-300 hover:text-brand-primary transition-colors text-sm block"
                   >
                     {link.name}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
