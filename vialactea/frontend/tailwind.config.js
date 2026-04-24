@@ -48,8 +48,16 @@ module.exports = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
         },
-        amarillo: '#F7A219',
-        azul: '#1B1634'
+        /* Paleta andina nariñense */
+        amarillo: '#E8A833',   /* maíz andino — reemplaza amarillo plano */
+        azul: '#0D0B2B',       /* noche estrellada — reemplaza azul genérico */
+        maiz: '#E8A833',       /* dorado cálido del maíz */
+        tierra: '#3D1C02',     /* tierra volcánica */
+        paramo: '#2C4A3E',     /* verde musgo del páramo */
+        noche: '#0D0B2B',      /* azul noche profundo */
+        nieve: '#F5F0E8',      /* crema cálida de la nieve andina */
+        'maiz-hover': '#D4942A',
+        'paramo-light': '#3D6B5A',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -64,11 +72,21 @@ module.exports = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' }
+        },
+        'hero-fade': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        'float-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out'
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'hero-fade': 'hero-fade 1s ease-in-out',
+        'float-up': 'float-up 0.6s ease-out forwards'
       }
     }
   },

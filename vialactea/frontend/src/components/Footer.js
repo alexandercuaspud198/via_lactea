@@ -8,9 +8,11 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Inicio', href: 'hero' },
     { name: 'Experiencias', href: 'experiencia' },
+    { name: 'Galería', href: 'galeria' },
+    { name: 'Astroturismo', href: 'astroturismo' },
+    { name: 'Gastronomía', href: 'gastronomia' },
     { name: 'Aliados', href: 'aliados' },
     { name: 'Eventos', href: 'eventos' },
-    { name: 'Testimonios', href: 'testimonios' },
     { name: 'Contacto', href: 'contacto' }
   ];
 
@@ -188,12 +190,13 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Floating WhatsApp Button */}
+      {/* FASE 2: Botón flotante WhatsApp con pulse animation */}
       <a
         href={`https://wa.me/${contactInfo.whatsapp}?text=${encodeURIComponent('Hola! Me interesa información sobre las experiencias turísticas en Guachucal.')}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 z-50"
+        className="whatsapp-pulse fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 z-50"
+        aria-label="Contactar por WhatsApp"
       >
         <MessageCircle size={24} />
       </a>

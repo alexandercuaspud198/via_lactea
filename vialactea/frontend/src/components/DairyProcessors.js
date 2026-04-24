@@ -1,42 +1,35 @@
 import React from 'react';
-import { dairyProcessors, iotData } from '../mock/data';
+import { dairyProcessors } from '../mock/data';
 import { Badge } from './ui/badge';
-import { Thermometer, FlaskConical, Clock, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 const DairyProcessors = () => {
-  const formatLastUpdate = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleTimeString('es-CO', { 
-      hour: '2-digit', 
-      minute: '2-digit' 
-    });
-  };
-
   return (
     <section id="aliados" className="py-24 bg-section">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-2 mb-6 text-primary">
+          <h2 className="heading-2 mb-6 text-primary reveal-up">
             Empresas Aliadas
           </h2>
-          <p className="body-large text-secondary max-w-2xl mx-auto">
-            Conoce las empresas aliadas de la via lactea
+          <p className="body-large text-secondary max-w-2xl mx-auto reveal-up stagger-1">
+            Conoce las empresas aliadas de la vía láctea
           </p>
         </div>
-
-
 
         {/* Processors Grid */}
         <div className="company-grid">
           {dairyProcessors.map((processor, index) => (
-            <div key={index} className="service-card group">
+            <div
+              key={index}
+              className={`service-card group reveal-scale stagger-${(index % 3) + 1}`}
+            >
               <div className="space-y-4">
                 <img
                   src={processor.image}
                   alt={processor.name}
-                  className="w-full h-40 object-cover rounded-lg"
+                  className="w-full h-40 object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-300"
                 />
-                
+
                 <div>
                   <h3 className="service-card-title mb-2">
                     {processor.name}
@@ -44,7 +37,7 @@ const DairyProcessors = () => {
                   <p className="service-card-description mb-4">
                     {processor.description}
                   </p>
-                  
+
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <TrendingUp size={16} className="text-brand-primary" />
@@ -58,9 +51,9 @@ const DairyProcessors = () => {
                     <p className="text-sm font-medium text-primary">Certificaciones:</p>
                     <div className="flex flex-wrap gap-2">
                       {processor.certifications.map((cert, certIndex) => (
-                        <Badge 
-                          key={certIndex} 
-                          variant="secondary" 
+                        <Badge
+                          key={certIndex}
+                          variant="secondary"
                           className="text-xs"
                         >
                           {cert}
@@ -76,7 +69,7 @@ const DairyProcessors = () => {
 
         {/* Del Establo a la Mesa Gallery */}
         <div className="mt-16">
-          <h3 className="heading-3 text-center mb-8 text-primary">
+          <h3 className="heading-3 text-center mb-8 text-primary reveal-up">
             Del Establo a la Mesa
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -86,7 +79,10 @@ const DairyProcessors = () => {
               { title: "Procesamiento", image: "img/procesamiento.jpg" },
               { title: "Producto Final", image: "img/producto.jpg" }
             ].map((step, index) => (
-              <div key={index} className="relative group cursor-pointer">
+              <div
+                key={index}
+                className={`relative group cursor-pointer reveal-scale stagger-${index + 1}`}
+              >
                 <img
                   src={step.image}
                   alt={step.title}

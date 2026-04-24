@@ -104,34 +104,19 @@ footer a[href*="emergent"] {
   pointer-events: none !important;
 }
 
-/* Botones globales amarillos */
-button,
-a.button,
-.btn {
-  background-color: #F7A219 !important;
-  color: #1B1634 !important; /* Texto azul para contraste */
+/* Estilos base de botones CTA — solo clases explícitas, no sobrescribir todo */
+.btn-cta {
+  background-color: #E8A833;
+  color: #0D0B2B;
   border: none;
-  border-radius: 12px; /* Bordes redondeados */
+  border-radius: 12px;
   padding: 0.6rem 1.2rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-button:hover,
-a.button:hover,
-.btn:hover {
-  background-color: #ffb93f !important; /* Un poco más claro al pasar el mouse */
-  transform: scale(1.05); /* Efecto sutil de hover */
-}
-
-
-
-@layer base {
-  button,
-  .btn,
-  [type="submit"],
-  [role="button"] {
-    @apply bg-amarillo text-azul font-bold rounded-xl px-4 py-2 hover:bg-[#ffb93f] transition-all;
-  }
+.btn-cta:hover {
+  background-color: #D4942A;
+  transform: scale(1.05);
 }

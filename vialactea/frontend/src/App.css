@@ -2,46 +2,53 @@
 
 /* Import fonts */
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Instrument+Serif:ital@1&display=swap');
 
-/* CSS Variables - Company Brand Colors */
+/* CSS Variables - Paleta Andina Nariñense */
 :root {
-  /* Backgrounds - Exact company Colors */
-  --bg-page: #FFFFFF;
+  /* Backgrounds */
+  --bg-page: #F5F0E8;              /* nieve: crema cálida andina */
   --bg-card: #FFFFFF;
-  --bg-section: rgba(243, 234, 255, 0.3);
-  
-  /* Text - Exact company Colors */
-  --text-primary: rgb(24, 24, 24);
-  --text-secondary: rgb(112, 112, 112);
-  --text-muted: rgb(143, 143, 143);
-  
-  /* Borders - Exact company Colors */
-  --border-light: rgba(24, 24, 24, 0.1);
-  --border-medium: rgba(24, 24, 24, 0.2);
-  --border-strong: rgba(24, 24, 24, 0.3);
-  
-  /* MAIN BRAND COLORS - company Brand Colors Only */
-  --brand-primary: rgb(0, 128, 255);
-  --brand-hover: rgb(0, 153, 255);
-  --brand-active: rgb(0, 102, 204);
+  --bg-section: rgba(61, 28, 2, 0.04); /* tierra sutil */
+
+  /* Text */
+  --text-primary: #0D0B2B;         /* noche: azul nocturno profundo */
+  --text-secondary: #5C3D1E;       /* tierra media */
+  --text-muted: #9A7B5A;           /* tierra clara */
+
+  /* Borders */
+  --border-light: rgba(13, 11, 43, 0.08);
+  --border-medium: rgba(13, 11, 43, 0.16);
+  --border-strong: rgba(13, 11, 43, 0.28);
+
+  /* Brand colors — paleta andina */
+  --brand-primary: #E8A833;        /* maíz: dorado cálido */
+  --brand-hover: #D4942A;          /* maíz oscuro */
+  --brand-active: #C07E20;
+
+  /* Andean accent tokens */
+  --tierra: #3D1C02;
+  --paramo: #2C4A3E;
+  --noche: #0D0B2B;
+  --nieve: #F5F0E8;
+  --maiz: #E8A833;
 }
 
-/* Gradients - Limited Use Only */
+/* Gradients */
 :root {
-  /* Hero Gradients - Use ONLY for major sections */
-  --gradient-hero: linear-gradient(135deg, 
-    rgba(243, 234, 255, 0.8) 0%, 
-    rgba(255, 232, 240, 0.8) 25%, 
-    rgba(232, 244, 255, 0.8) 50%, 
-    rgba(255, 232, 213, 0.8) 75%, 
-    rgba(243, 234, 255, 0.8) 100%);
-    
-  /* Button Gradients - For CTAs only */
-  --gradient-button: linear-gradient(168deg, rgb(67, 67, 67) -63%, rgb(0, 0, 0) 100%);
-  
-  /* Section Divider Gradients */
-  --gradient-divider: linear-gradient(90deg, transparent 0%, rgba(24, 24, 24, 0.1) 50%, transparent 100%);
+  /* Hero: gradiente oscuro de abajo hacia arriba */
+  --gradient-hero: linear-gradient(
+    to top,
+    rgba(13, 11, 43, 0.85) 0%,
+    rgba(13, 11, 43, 0.40) 50%,
+    rgba(13, 11, 43, 0.20) 100%
+  );
+
+  /* Botones CTA andinos */
+  --gradient-button: linear-gradient(168deg, #3D6B5A 0%, #2C4A3E 100%);
+
+  /* Divisor de sección */
+  --gradient-divider: linear-gradient(90deg, transparent 0%, rgba(13, 11, 43, 0.12) 50%, transparent 100%);
 }
 
 /* Base styles */
@@ -203,46 +210,49 @@ body {
 }
 
 .hero-title {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 700;
-  font-size: clamp(32px, 5vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(40px, 7vw, 80px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #F5F0E8;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 16px rgba(13, 11, 43, 0.5);
 }
 
 .hero-subtitle {
   font-family: 'Satoshi', sans-serif;
   font-size: clamp(16px, 2.5vw, 20px);
   line-height: 1.5;
-  color: var(--text-secondary);
+  color: rgba(245, 240, 232, 0.90);
   margin-bottom: 32px;
 }
 
-/* Typography Scale - company Sizing */
+/* Typography Scale - Andean Identity */
 .brand-display {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Cormorant Garamond', 'Instrument Serif', serif;
   font-style: italic;
-  font-size: clamp(60px, 8vw, 168px);
-  line-height: 1.1em;
+  font-weight: 600;
+  font-size: clamp(56px, 8vw, 168px);
+  line-height: 1.05em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
 }
 
 .heading-1 {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 700;
-  font-size: clamp(32px, 5vw, 64px);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(36px, 5.5vw, 72px);
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .heading-2 {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: clamp(24px, 4vw, 48px);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.008em;
 }
 
 .heading-3 {
@@ -421,4 +431,781 @@ textarea:focus {
 
 a[href*="emergent"] {
   display: none !important;
+}
+
+/* ==============================================
+   FASE 2: Scroll Reveal con IntersectionObserver
+   ============================================== */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-52px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(52px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.reveal-up.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* ==============================================
+   FASE 2: Microinteracciones en Cards
+   ============================================== */
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(232, 168, 51, 0.09), transparent);
+  transition: left 0.55s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card:hover::before {
+  left: 160%;
+}
+
+.service-card:hover {
+  box-shadow: 0 14px 36px rgba(13, 11, 43, 0.13), 0 0 0 1px rgba(232, 168, 51, 0.15);
+  border-color: rgba(232, 168, 51, 0.2);
+}
+
+/* ==============================================
+   FASE 2: WhatsApp Pulse Animation
+   ============================================== */
+
+.whatsapp-pulse {
+  position: relative;
+}
+
+.whatsapp-pulse::before,
+.whatsapp-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  animation: wa-pulse-ring 2.3s ease-out infinite;
+  pointer-events: none;
+}
+
+.whatsapp-pulse::after {
+  animation-delay: 0.75s;
+}
+
+@keyframes wa-pulse-ring {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.95); opacity: 0; }
+}
+
+/* ==============================================
+   FASE 3: Barra de Progreso de Scroll
+   ============================================== */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #E8A833, #2C4A3E, #E8A833);
+  background-size: 200% 100%;
+  z-index: 100000;
+  transition: width 0.08s linear;
+  animation: progress-shine 3s linear infinite;
+  box-shadow: 0 0 8px rgba(232, 168, 51, 0.55);
+  pointer-events: none;
+}
+
+@keyframes progress-shine {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ==============================================
+   FASE 3: Header Scroll-Aware con Blur
+   ============================================== */
+
+.header-scrolled {
+  background: rgba(13, 11, 43, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 32px rgba(13, 11, 43, 0.45) !important;
+}
+
+/* ==============================================
+   FASE 3: Indicador de Sección Activa
+   ============================================== */
+
+.nav-active {
+  color: #E8A833 !important;
+}
+
+.nav-active::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #E8A833;
+  border-radius: 50%;
+  margin: 3px auto 0;
+}
+
+/* ==============================================
+   FASE 3: Drawer Lateral Móvil
+   ============================================== */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 99997;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 85vw);
+  background: #0D0B2B;
+  z-index: 99998;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 28px 20px;
+  overflow-y: auto;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-close {
+  background: rgba(255, 255, 255, 0.07);
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.drawer-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.drawer-nav-item {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.82);
+  text-align: left;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.drawer-nav-item:hover,
+.drawer-nav-item.active {
+  background: rgba(232, 168, 51, 0.12);
+  color: #E8A833;
+  padding-left: 24px;
+}
+
+.drawer-whatsapp {
+  margin-top: 28px;
+  padding: 16px;
+  background: rgba(232, 168, 51, 0.06);
+  border: 1px solid rgba(232, 168, 51, 0.18);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-family: 'Satoshi', sans-serif;
+}
+
+.drawer-whatsapp a {
+  color: #E8A833;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ==============================================
+   FASE 4: Galería Masonry + Filtros
+   ============================================== */
+
+.gallery-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.gallery-filter-btn {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border-medium);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.gallery-filter-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.gallery-filter-btn.active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--tierra);
+  font-weight: 700;
+}
+
+.masonry-grid {
+  columns: 4 200px;
+  column-gap: 12px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.masonry-item:hover {
+  transform: scale(1.025);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.25s ease;
+}
+
+.masonry-item:hover img {
+  filter: brightness(0.82);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 11, 43, 0.72) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 14px;
+}
+
+.masonry-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-image-title {
+  color: white;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Satoshi', sans-serif;
+  line-height: 1.3;
+}
+
+@media (max-width: 809px) {
+  .masonry-grid {
+    columns: 2 140px;
+    column-gap: 8px;
+  }
+  .masonry-item {
+    margin-bottom: 8px;
+  }
+}
+
+/* ==============================================
+   FASE 4: Astroturismo — Cielo Estrellado Animado
+   ============================================== */
+
+.astro-section {
+  position: relative;
+  background: #03021A;
+  overflow: hidden;
+  color: white;
+}
+
+.astro-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.astro-nebula-1 {
+  width: 550px;
+  height: 550px;
+  top: -120px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(44, 74, 62, 0.35) 0%, transparent 70%);
+}
+
+.astro-nebula-2 {
+  width: 450px;
+  height: 450px;
+  bottom: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(44, 26, 70, 0.3) 0%, transparent 70%);
+}
+
+.astro-milky-way {
+  position: absolute;
+  width: 130%;
+  height: 220px;
+  top: 38%;
+  left: -15%;
+  background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(180, 160, 220, 0.055) 0%, transparent 70%);
+  transform: rotate(-22deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 50%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent);
+  animation: shoot linear infinite;
+  opacity: 0;
+  z-index: 2;
+}
+
+@keyframes shoot {
+  0%   { transform: translate(0, 0) rotate(-40deg);      opacity: 0; }
+  4%   { opacity: 1; }
+  65%  { opacity: 1; }
+  100% { transform: translate(550px, 550px) rotate(-40deg); opacity: 0; }
+}
+
+/* Constellation cards */
+.constellation-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 22px;
+  transition: all 0.3s ease;
+}
+
+.constellation-card:hover {
+  background: rgba(232, 168, 51, 0.07);
+  border-color: rgba(232, 168, 51, 0.28);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(232, 168, 51, 0.1);
+}
+
+.constellation-card.featured {
+  background: rgba(232, 168, 51, 0.06);
+  border-color: rgba(232, 168, 51, 0.22);
+}
+
+.moon-phase-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+/* ==============================================
+   FASE 4: Gastronomía
+   ============================================== */
+
+.food-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(13, 11, 43, 0.12);
+  border-color: rgba(232, 168, 51, 0.22);
+}
+
+.food-card-img-wrap {
+  overflow: hidden;
+  height: 200px;
+}
+
+.food-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-card-img-wrap img {
+  transform: scale(1.07);
+}
+
+.food-card-emoji {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  background: var(--bg-section);
+}
+
+.process-steps-line {
+  position: relative;
+}
+
+.process-steps-line::before {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 40px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--brand-primary), transparent);
+  z-index: 0;
+}
+
+.process-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: var(--tierra);
+  font-weight: 800;
+  font-size: 15px;
+  font-family: 'Satoshi', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(232, 168, 51, 0.3);
+}
+
+/* ==============================================
+   FASE 4: Contact — Timeline Visual de Ruta
+   ============================================== */
+
+.route-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.route-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.route-city-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.route-city-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.route-city-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  font-family: 'Satoshi', sans-serif;
+}
+
+.route-city-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'Satoshi', sans-serif;
+}
+
+.route-line {
+  flex: 1;
+  min-width: 40px;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-primary), var(--border-medium));
+  border-radius: 2px;
+}
+
+.route-arrow {
+  color: var(--brand-primary);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.transport-card {
+  border: 1.5px solid var(--border-light);
+  border-radius: 14px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: all 0.2s ease;
+  background: var(--bg-card);
+}
+
+.transport-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 4px 16px rgba(232, 168, 51, 0.12);
+  transform: translateY(-2px);
+}
+
+.transport-emoji {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.transport-stat {
+  background: var(--bg-section);
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.transport-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-family: 'Satoshi', sans-serif;
+}
+
+.transport-stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 2px;
+  font-family: 'Satoshi', sans-serif;
+}
+
+@media (max-width: 809px) {
+  .route-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .route-line {
+    display: none;
+  }
+  .route-arrow {
+    display: none;
+  }
+}
+
+/* ==============================================
+   ANIMACIONES DE LECHE — Hero Section
+   ============================================== */
+
+/* ── Olas de leche (fondo del hero) ── */
+.milk-wave-wrap {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  line-height: 0;
+  pointer-events: none;
+  overflow: hidden;
+  height: 80px;
+}
+
+.milk-wave-svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 80px;
+  animation: milk-wave-scroll 8s linear infinite;
+  will-change: transform;
+}
+
+.milk-wave-svg-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 80px;
+  opacity: 0.5;
+  animation: milk-wave-scroll 13s linear infinite reverse;
+  will-change: transform;
+}
+
+@keyframes milk-wave-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Burbujas de leche subiendo ── */
+.milk-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(255, 255, 255, 0.92),
+    rgba(245, 240, 232, 0.35)
+  );
+  box-shadow: inset 0 -2px 4px rgba(255,255,255,0.3), 0 0 6px rgba(255,255,255,0.15);
+  pointer-events: none;
+  z-index: 3;
+  animation: milk-bubble-rise linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes milk-bubble-rise {
+  0%   { transform: translateY(0) scale(1);    opacity: 0;    }
+  6%   { opacity: 0.75; }
+  50%  { transform: translateY(-35vh) scale(0.9); }
+  88%  { opacity: 0.2; }
+  100% { transform: translateY(-72vh) scale(0.6); opacity: 0; }
+}
+
+/* ── Ondas de salpicadura (ripples) ── */
+.milk-ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  pointer-events: none;
+  z-index: 3;
+  animation: milk-ripple-expand ease-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes milk-ripple-expand {
+  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0;   }
+}
+
+/* ── Gotas cayendo desde arriba ── */
+.milk-drop {
+  position: absolute;
+  border-radius: 50% 50% 48% 52% / 56% 56% 44% 44%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(245, 240, 232, 0.4)
+  );
+  pointer-events: none;
+  z-index: 3;
+  animation: milk-drop-fall linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes milk-drop-fall {
+  0%   { transform: translateY(-30px) scaleY(1.2); opacity: 0;    }
+  6%   { opacity: 0.65; }
+  82%  { opacity: 0.18; }
+  100% { transform: translateY(100vh)  scaleY(0.85); opacity: 0; }
+}
+
+/* ── Brillo de leche (destello suave) ── */
+.milk-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(
+    ellipse 60% 30% at 50% 92%,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
+  animation: milk-sheen-pulse 5s ease-in-out infinite;
+}
+
+@keyframes milk-sheen-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1;   }
 }

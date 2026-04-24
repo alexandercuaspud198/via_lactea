@@ -14,11 +14,11 @@ const ExperienceTimeline = () => {
     <section id="experiencia" className="py-24 bg-page">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-2 mb-6 text-primary">
+          <h2 className="heading-2 mb-6 text-primary reveal-up">
             La Experiencia Completa
           </h2>
-          <p className="body-large text-secondary max-w-2xl mx-auto">
-            Un viaje de 2 días y 1 noche que te conectará con la tradición lechera 
+          <p className="body-large text-secondary max-w-2xl mx-auto reveal-up stagger-1">
+            Un viaje de 2 días y 1 noche que te conectará con la tradición lechera
             y la belleza natural de los Andes nariñenses
           </p>
         </div>
@@ -27,12 +27,12 @@ const ExperienceTimeline = () => {
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-brand-primary/30 hidden md:block" />
-            
+
             <div className="space-y-12">
               {experienceTimeline.map((item, index) => (
                 <div
                   key={index}
-                  className="relative flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-8"
+                  className={`relative flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-8 reveal-left stagger-${(index % 3) + 1}`}
                 >
                   {/* Timeline dot */}
                   <div className="hidden md:flex items-center justify-center w-16 h-16 bg-brand-primary rounded-full border-4 border-white shadow-lg relative z-10">
@@ -75,7 +75,7 @@ const ExperienceTimeline = () => {
                               </HoverCardContent>
                             </HoverCard>
                           </div>
-                          
+
                           <h3 className="service-card-title mb-2">
                             {item.title}
                           </h3>
@@ -90,8 +90,6 @@ const ExperienceTimeline = () => {
               ))}
             </div>
           </div>
-
-
         </div>
       </div>
     </section>

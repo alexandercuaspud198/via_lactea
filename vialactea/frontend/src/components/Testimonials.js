@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { testimonials } from '../mock/data';
-import { Button } from './ui/button';
 import { Star, Play, ThumbsUp, Share2, MessageSquare } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
@@ -13,7 +12,6 @@ const Testimonials = () => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -27,24 +25,20 @@ const Testimonials = () => {
     ));
   };
 
-  const handleVideoPlay = (index) => {
-    setPlayingVideo(index);
-  };
-
   return (
     <section id="testimonios" className="py-24 bg-section">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="heading-2 mb-6 text-primary">
+          <h2 className="heading-2 mb-6 text-primary reveal-up">
             Lo que dicen nuestros visitantes
           </h2>
-          <p className="body-large text-secondary max-w-2xl mx-auto">
+          <p className="body-large text-secondary max-w-2xl mx-auto reveal-up stagger-1">
             Experiencias reales de personas que han vivido la magia de Guachucal
           </p>
         </div>
 
         {/* Main Testimonial Slider */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-16 reveal-up stagger-2">
           <div className="relative bg-white rounded-lg p-8 shadow-lg">
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
               {/* Video Section */}
@@ -60,14 +54,9 @@ const Testimonials = () => {
                       title={`Testimonio de ${testimonials[currentSlide].name}`}
                     />
                   ) : (
-                    <div className="relative w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                      <img 
-                        src="/api/placeholder/400/250" 
-                        alt="Video testimonial"
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="relative w-full h-full bg-gradient-to-br from-[#0D0B2B] to-[#2C4A3E] flex items-center justify-center">
                       <button
-                        onClick={() => handleVideoPlay(currentSlide)}
+                        onClick={() => setPlayingVideo(currentSlide)}
                         className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors group"
                       >
                         <div className="bg-white rounded-full p-4 group-hover:scale-110 transition-transform">
@@ -142,7 +131,10 @@ const Testimonials = () => {
         {/* All Testimonials Grid */}
         <div className="company-grid">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="service-card">
+            <div
+              key={index}
+              className={`service-card reveal-scale stagger-${(index % 3) + 1}`}
+            >
               <div className="flex items-center space-x-3 mb-4">
                 <Avatar>
                   <AvatarImage src={testimonial.avatar} />
@@ -163,7 +155,7 @@ const Testimonials = () => {
               </p>
 
               <button
-                onClick={() => handleVideoPlay(index)}
+                onClick={() => setPlayingVideo(index)}
                 className="flex items-center space-x-2 text-brand-primary hover:underline"
               >
                 <Play size={16} />
@@ -172,8 +164,6 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-
-
       </div>
     </section>
   );
